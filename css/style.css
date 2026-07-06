@@ -552,11 +552,52 @@ main p {
 
 .book-card > p:not(.book-number) {
     color: var(--text-secondary);
+
     line-height: 1.7;
+
     margin-bottom: 35px;
+
 }
 
 .book-card .button {
     margin-top: auto;
     align-self: flex-start;
+}
+/* ==========================================================
+   BOOK COVERS
+========================================================== */
+
+.book-cover {
+    width: 100%;
+    height: 315px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: var(--radius-small);
+
+    margin-bottom: 30px;
+
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.book-cover img {
+    display: block;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    transition: transform 0.6s ease;
+}
+
+.book-card:hover .book-cover img {
+    transform: scale(1.04);
 }
