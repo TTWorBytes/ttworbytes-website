@@ -47,11 +47,13 @@
 }
 
 body {
-h1,
-h2,
-h3 {
-    font-family: var(--font-heading);
-}
+
+    background: #0B1020;
+
+    color: white;
+
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 html {
     scroll-behavior: smooth;
@@ -71,19 +73,33 @@ header {
    HERO
 ========================================================== */
 .hero {
+position: relative;
+overflow: hidden;
     min-height: 75vh;
+
     display: flex;
+
     align-items: center;
+
     justify-content: center;
+
     padding: 100px 40px;
+
     text-align: center;
+
     background:
-        radial-gradient(circle at top, rgba(79, 168, 255, 0.25), transparent 35%),
-        linear-gradient(180deg, #0B1020 0%, #050814 100%);
+        radial-gradient(
+            circle at top,
+            rgba(79,168,255,0.18),
+            transparent 45%
+        );
+
 }
 
 .hero-content {
     max-width: 900px;
+    position: relative;
+    z-index: 2; 
 }
 .hero {
     position: relative;
@@ -94,12 +110,15 @@ header {
     content: "";
     position: absolute;
     inset: 0;
-    background-image:
-        radial-gradient(circle, rgba(255,255,255,0.7) 1px, transparent 1px),
-        radial-gradient(circle, rgba(79,168,255,0.5) 1px, transparent 1px);
-    background-size: 90px 90px, 140px 140px;
-    animation: starsMove 28s linear infinite;
-    opacity: 0.35;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(214,169,74,0.08),
+            transparent 55%
+        );
+
+    pointer-events: none;
 }
 
 .hero::after {
@@ -119,20 +138,7 @@ header {
 
     max-width: 900px;
 
-    background: var(--surface);
-
-    backdrop-filter: blur(14px);
-
-    -webkit-backdrop-filter: blur(14px);
-
-    border: 1px solid rgba(255,255,255,0.12);
-
-    border-radius: var(--radius-large);
-
     padding: 70px;
-
-    box-shadow:
-        0 20px 60px rgba(0,0,0,0.45);
 
     position: relative;
 
@@ -717,4 +723,120 @@ main p {
     max-width: 100%;
     max-height: 100%;
 }
+}
+/* ==========================================================
+   GLASS PANEL COMPONENT
+========================================================== */
+
+.glass-panel {
+
+    background: var(--surface);
+
+    border: 1px solid var(--surface-border);
+
+    border-radius: var(--radius-large);
+
+    backdrop-filter: blur(12px);
+
+    box-shadow: var(--shadow);
+
+    transition:
+        transform var(--speed),
+        border-color var(--speed),
+        box-shadow var(--speed);
+
+}
+
+.glass-panel:hover {
+
+    transform: translateY(-8px);
+
+    border-color: var(--gold);
+
+    box-shadow: 0 25px 60px rgba(0,0,0,.35);
+
+}
+/* ==========================================================
+   SECTION HEADER COMPONENT
+========================================================== */
+
+.section-header {
+
+    max-width: 850px;
+
+    margin: 0 auto 70px;
+
+    text-align: center;
+
+}
+
+.section-header h2 {
+
+    font-size: 54px;
+
+    margin: 18px 0 25px;
+
+}
+
+.section-header p:last-child {
+
+    max-width: 720px;
+
+    margin: 0 auto;
+
+    color: var(--text-secondary);
+
+    line-height: 1.8;
+
+    font-size: 20px;
+
+}
+/* ==========================================================
+   OUR BELIEF
+========================================================== */
+
+.belief {
+
+    padding: 120px 40px;
+
+}
+
+.belief-content {
+
+    max-width: 850px;
+
+    margin: auto;
+
+    text-align: center;
+
+}
+
+.belief h2 {
+
+    font-size: 54px;
+
+    margin: 25px 0 35px;
+
+    color: var(--text);
+
+}
+
+.belief-text {
+
+    font-size: 24px;
+
+    line-height: 1.9;
+
+    color: var(--text-secondary);
+
+}
+.belief-content {
+    max-width: 900px;
+    margin: auto;
+    padding: 70px; 
+}
+
+.belief-content:hover {
+    transform: translateY(-8px);
+    border-color: var(--gold);
 }
