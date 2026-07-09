@@ -13,7 +13,7 @@
     --blue: #4FA8FF;
 
     --text: #FFFFFF;
-    --text-secondary: #C7D0E0;
+   --text-secondary: #D4DCE8;
 
     --font-heading: "Cinzel", Georgia, serif;
     --font-body: "Inter", Arial, sans-serif;
@@ -171,11 +171,11 @@ nav a:focus {
 
     text-decoration: none;
 
-    padding: 18px 40px;
+    padding: 15px 34px;
 
     border-radius: 40px;
 
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 700;
 
     transition:
@@ -524,7 +524,7 @@ nav a:focus {
     display: flex;
     flex-direction: column;
 
-    padding: 40px;
+    padding: 60px 40px 40px;
 
     background: var(--surface);
 
@@ -546,36 +546,40 @@ nav a:focus {
     box-shadow: var(--shadow);
 }
 
-.book-number {
-    color: var(--gold);
-
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 3px;
-
-    margin-bottom: 20px;
-}
-
 .book-card h3 {
-    font-size: 27px;
+    color: var(--text);
+
+    font-size: 28px;
     line-height: 1.25;
 
-    margin-bottom: 20px;
+    margin: 10px 0 24px;
+
+    text-align: center;
 }
 
-.book-card > p:not(.book-number) {
+.book-card > p {
     color: var(--text-secondary);
 
     line-height: 1.7;
 
     margin-bottom: 35px;
+
+    text-align: center;
 }
 
 .book-card .button {
     margin-top: auto;
-    align-self: flex-start;
+    align-self: center;
 }
-
+.book-card:hover .button {
+    background: var(--gold);
+    color: #11192E;
+}
+.book-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
 /* BOOK COVERS */
 
 .book-cover {
@@ -590,7 +594,7 @@ nav a:focus {
 
     border-radius: var(--radius-small);
 
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 
     background: rgba(0, 0, 0, 0.35);
 }
@@ -612,7 +616,12 @@ nav a:focus {
 .book-card:hover .book-cover img {
     transform: scale(1.04);
 }
-
+.book-card {
+    cursor: pointer;
+}
+.book-card .button {
+    pointer-events: none;
+}
 /* ANIMATIONS */
 
 @keyframes starsMove {
@@ -767,4 +776,220 @@ nav a:focus {
         width: 100%;
         text-align: center;
     }
+}
+/*==========================================================
+    BOOK OPENING
+==========================================================*/
+
+.book-opening{
+
+    min-height:85vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:120px 40px;
+
+}
+
+.opening-cover{
+
+    width:340px;
+
+    margin:40px 0 50px;
+
+}
+
+.opening-cover img{
+
+    width:100%;
+
+    display:block;
+
+    filter:
+        drop-shadow(0 30px 60px rgba(0,0,0,.45));
+
+}
+
+.book-opening h1{
+
+    font-size:72px;
+
+    color:var(--gold);
+
+    margin-bottom:35px;
+
+}
+
+.opening-line{
+
+    max-width:760px;
+
+    font-size:34px;
+
+    line-height:1.5;
+
+    font-style:italic;
+
+    color:white;
+
+    margin-bottom:30px;
+
+}
+
+.opening-name{
+
+    font-size:24px;
+
+    color:var(--text-secondary);
+
+    margin-bottom:60px;
+
+}
+
+.opening-buttons{
+
+    display:flex;
+
+    gap:24px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+.book-info {
+    padding: 120px 40px;
+}
+
+.book-info-panel {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 60px;
+    text-align: center;
+}
+
+.book-info-panel p {
+    font-size: 22px;
+    line-height: 1.9;
+    margin-bottom: 28px;
+}
+
+.book-info-panel p:last-child {
+    margin-bottom: 0;
+}
+/*==========================================================
+    CHARACTER INTRODUCTION
+==========================================================*/
+
+.characters{
+
+    padding:140px 40px;
+
+}
+
+.character-introduction{
+
+    max-width:1090px;
+
+    margin:80px auto 0;
+
+    display:grid;
+
+    grid-template-columns:420px 1fr;
+
+    gap:80px;
+
+    align-items:center;
+
+}
+
+.character-image{
+
+    text-align:center;
+
+}
+
+.character-image img{
+
+    width:100%;
+
+    display:block;
+
+     margin-bottom:160px;
+
+}
+
+.character-text{
+
+    text-align:left;
+
+}
+
+.character-quote{
+
+    font-size:50px;
+
+    color:var(--gold);
+
+    font-weight:700;
+
+    line-height:1.4;
+
+    margin-bottom:35px;
+
+}
+
+.character-text p{
+
+    font-size:22px;
+
+    line-height:1.9;
+
+    margin-bottom:28px;
+
+}
+.character-introduction.reverse{
+
+    grid-template-columns:1fr 420px;
+
+}
+.character-introduction.reverse .character-image{
+
+    order:2;
+
+}
+
+.character-introduction.reverse .character-text{
+
+    order:1;
+
+}
+.why-series {
+    padding: 140px 40px;
+}
+
+.why-series-text {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 60px;
+    text-align: center;
+    background: rgba(30, 35, 52, 0.95);
+}
+
+.why-series-text p {
+    font-size: 22px;
+    line-height: 1.9;
+    margin-bottom: 28px;
+}
+
+.why-series-text p:last-child {
+    margin-bottom: 0;
 }
