@@ -1203,6 +1203,43 @@ nav a:focus {
     font-size: 21px;
     line-height: 1.8;
 }
+/* ==========================================================
+   BOOK-SPECIFIC FEATURE
+========================================================== */
+
+.book-feature {
+    padding: 140px 40px;
+}
+
+.book-feature-layout {
+    max-width: 1150px;
+    margin: 80px auto 0;
+
+    display: grid;
+    grid-template-columns: 420px 1fr;
+
+    gap: 80px;
+    align-items: center;
+}
+
+.book-feature-image img {
+    display: block;
+    width: 100%;
+}
+
+.book-feature-text {
+    text-align: left;
+}
+
+.book-feature-text p {
+    font-size: 22px;
+    line-height: 1.9;
+    margin-bottom: 28px;
+}
+
+.book-feature-text .button {
+    margin-top: 20px;
+}
 
 /* RESPONSIVE DESIGN */
 
@@ -1282,6 +1319,20 @@ nav a:focus {
     .world-grid {
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
+    .book-feature-layout {
+    grid-template-columns: 1fr;
+    max-width: 700px;
+    text-align: center;
+}
+
+.book-feature-image {
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.book-feature-text {
+    text-align: center;
+}
 }
 
 @media (max-width: 520px) {
@@ -1444,6 +1495,13 @@ nav a:focus {
         width: 100%;
         text-align: center;
     }
+    .book-feature {
+    padding: 90px 24px;
+}
+
+.book-feature-text p {
+    font-size: 18px;
+}
 }
 /*==========================================================
     BOOK OPENING
