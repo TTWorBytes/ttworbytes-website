@@ -7,16 +7,23 @@ document.querySelectorAll(".book-card").forEach(card => {
         }
     });
 });
-/* Highlight characters connected to a selected book. */
+/* ==========================================================
+   PEOPLE PAGE — HIGHLIGHT CAST BY BOOK
+========================================================== */
 
-const peoplePageCards = document.querySelectorAll(".person-card[data-books]");
+const peoplePageCards =
+    document.querySelectorAll(".person-card[data-books]");
 
 if (peoplePageCards.length > 0) {
-    const pageParameters = new URLSearchParams(window.location.search);
-    const selectedBook = pageParameters.get("book");
+    const pageParameters =
+        new URLSearchParams(window.location.search);
+
+    const selectedBook =
+        pageParameters.get("book");
 
     if (selectedBook) {
-        const filterMessage = document.querySelector("#book-filter-message");
+        const filterMessage =
+            document.querySelector("#book-filter-message");
 
         if (filterMessage) {
             filterMessage.textContent =
@@ -26,15 +33,31 @@ if (peoplePageCards.length > 0) {
         }
 
         peoplePageCards.forEach(card => {
-            const books = card.dataset.books
+            const includedBooks = card.dataset.books
+                .trim()
                 .split(/\s+/)
                 .filter(Boolean);
 
-            if (books.includes(selectedBook)) {
-                card.classList.add("is-in-book");
-            } else {
-                card.classList.add("is-not-in-book");
-            }
+            const excludedBooks = (card.dataset.excludeBooks || "")
+                .trim()
+                .split(/\s+/)
+                .filter(Boolean);
+
+            const appearsInAllBooks =
+                includedBooks.includes("all");
+
+            const appearsInSelectedBook =
+                includedBooks.includes(selectedBook);
+
+            const isExcludedFromSelectedBook =
+                excludedBooks.includes(selectedBook);
+
+            const appearsInStory =
+                !isExcludedFromSelectedBook &&
+                (appearsInAllBooks || appearsInSelectedBook);
+
+            card.classList.toggle("is-in-book", appearsInStory);
+            card.classList.toggle("is-not-in-book", !appearsInStory);
         });
     }
 }
