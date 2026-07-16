@@ -1476,9 +1476,194 @@ nav a:focus {
     font-size: 21px;
     line-height: 1.8;
 }
+
+/* ==========================================================
+   PROFILE CONNECTIONS
+========================================================== */
+
+.profile-connections {
+    padding: 140px 40px;
+}
+
+.connection-grid {
+    max-width: 1150px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 32px;
+}
+
+.connection-card {
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    color: inherit;
+    text-decoration: none;
+
+    background: var(--surface);
+
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-large);
+
+    transition:
+        transform var(--speed),
+        border-color var(--speed),
+        box-shadow var(--speed);
+}
+
+.connection-card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--gold);
+
+    box-shadow: var(--shadow);
+}
+
+.connection-portrait {
+    height: 330px;
+
+    overflow: hidden;
+}
+
+.connection-portrait img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: top center;
+
+    transition: transform 0.6s ease;
+}
+
+.connection-card:hover .connection-portrait img {
+    transform: scale(1.04);
+}
+
+.connection-content {
+    flex: 1;
+
+    padding: 32px;
+
+    text-align: center;
+}
+
+.connection-role {
+    color: var(--gold);
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+
+    margin-bottom: 14px;
+}
+
+.connection-content h3 {
+    color: var(--text);
+
+    font-size: 28px;
+
+    margin-bottom: 18px;
+}
+
+.connection-content > p:last-child {
+    color: var(--text-secondary);
+
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* ==========================================================
+   PROFILE PREVIOUS / NEXT NAVIGATION
+========================================================== */
+
+.profile-pagination {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+.profile-pagination-link {
+    padding: 28px 32px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    color: inherit;
+    text-decoration: none;
+
+    background: var(--surface);
+
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-large);
+
+    transition:
+        transform var(--speed),
+        border-color var(--speed),
+        background var(--speed);
+}
+
+.profile-pagination-link:hover {
+    transform: translateY(-5px);
+
+    border-color: var(--gold);
+    background: rgba(214, 169, 74, 0.08);
+}
+
+.profile-pagination-direction {
+    color: var(--gold);
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.profile-pagination-link strong {
+    color: var(--text);
+
+    font-size: 24px;
+}
+
+.next-character {
+    text-align: right;
+}
+/*==========================================*/
 /* RESPONSIVE DESIGN */
+/*===========================================*/
 
 @media (max-width: 900px) {
+    .connection-grid {
+    grid-template-columns: 1fr;
+
+    max-width: 650px;
+}
+
+.connection-card {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+
+    align-items: center;
+}
+
+.connection-portrait {
+    height: 100%;
+    min-height: 290px;
+}
+
+.connection-content {
+    text-align: left;
+}
     .people-grid {
     grid-template-columns: 1fr;
 
@@ -1605,6 +1790,36 @@ nav a:focus {
 }
 
 @media (max-width: 520px) {
+
+    .profile-pagination {
+    padding: 30px 24px 70px;
+
+    grid-template-columns: 1fr;
+}
+
+.next-character {
+    text-align: left;
+}
+    .profile-connections {
+    padding: 90px 24px;
+}
+
+.connection-card {
+    display: flex;
+}
+
+.connection-portrait {
+    height: auto;
+    min-height: 0;
+}
+
+.connection-portrait img {
+    height: auto;
+}
+
+.connection-content {
+    text-align: center;
+}
 .design-system-hero,
 .design-system-section {
     padding: 90px 24px;
