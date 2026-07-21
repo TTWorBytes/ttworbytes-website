@@ -49,7 +49,9 @@ body {
 }
 
 /* SITEWIDE STAR BACKGROUND */
-
+a[href="#"] {
+    outline: 3px solid red;
+}
 body::before {
     content: "";
     position: fixed;
