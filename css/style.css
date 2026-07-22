@@ -680,17 +680,10 @@ nav a:focus {
     padding: 140px 40px;
 }
 
-.design-rule-grid,
-.colour-grid {
-    max-width: 1200px;
-
-    margin: 0 auto;
-
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    gap: 30px;
-}
+ .design-rule-grid,
+    .colour-grid {
+        grid-template-columns: 1fr;
+    }
 
 .design-rule-card,
 .colour-card {
@@ -821,36 +814,15 @@ nav a:focus {
 }
 
 .character-layout-example {
-    max-width: 1050px;
+        grid-template-columns: 1fr;
+        max-width: 700px;
+        text-align: center;
+    }
 
-    margin: 0 auto 70px;
 
-    display: grid;
-    grid-template-columns: 360px 1fr;
-
-    gap: 70px;
-
-    align-items: center;
-
-    text-align: left;
-}
-
-.character-layout-image {
-    min-height: 500px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px dashed var(--gold);
-
-    border-radius: var(--radius-large);
-
-    color: var(--gold);
-
-    font-family: var(--font-heading);
-    font-size: 28px;
-}
+ .character-layout-image {
+        min-height: 420px;
+    }
 
 .character-layout-copy h3 {
     color: var(--text);
@@ -1517,6 +1489,7 @@ nav a:focus {
         box-shadow var(--speed);
 }
 
+
 .connection-card:hover {
     transform: translateY(-8px);
 
@@ -1525,11 +1498,10 @@ nav a:focus {
     box-shadow: var(--shadow);
 }
 
-.connection-portrait {
-    height: 330px;
-
-    overflow: hidden;
-}
+ .connection-portrait {
+        height: 100%;
+        min-height: 290px;
+    }
 
 .connection-portrait img {
     width: 100%;
@@ -2006,7 +1978,32 @@ nav a:focus {
     letter-spacing: 0.13em;
     text-transform: uppercase;
 }
+.story-status-reveal {
+    font-family: inherit;
+    cursor: pointer;
+    appearance: none;
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
 
+.story-status-reveal:hover {
+    border-color: rgba(214, 169, 74, 0.8);
+    background: rgba(214, 169, 74, 0.14);
+    transform: translateY(-2px);
+}
+
+.story-status-reveal:focus-visible {
+    outline: 3px solid rgba(79, 168, 255, 0.75);
+    outline-offset: 4px;
+}
+
+.story-status-reveal.is-revealed {
+    background: rgba(214, 169, 74, 0.14);
+    border-color: rgba(214, 169, 74, 0.75);
+}
 
 /* CLOSING SECTION */
 
@@ -2041,57 +2038,207 @@ nav a:focus {
     gap: 16px;
     margin-top: 34px;
 }
-/*==========================================*/
-/* RESPONSIVE DESIGN */
-/*===========================================*/
 
-@media (max-width: 900px) {
-    .connection-grid {
-    grid-template-columns: 1fr;
+/* =========================================================
+   BASIC LANDING PAGE HERO
+   ========================================================= */
 
-    max-width: 650px;
-}
-
-.connection-card {
-    display: grid;
-    grid-template-columns: 240px 1fr;
-
+.page-hero {
+    display: flex;
     align-items: center;
+
+    width: min(calc(100% - 48px), 1200px);
+    min-height: calc(100vh - 90px);
+
+    margin-inline: auto;
+    padding-block: clamp(70px, 9vw, 120px);
 }
 
-.connection-portrait {
-    height: 100%;
-    min-height: 290px;
-}
+.page-hero__content {
+    width: 100%;
+    max-width: 920px;
 
-.connection-content {
-    text-align: left;
-}
-    .people-grid {
-    grid-template-columns: 1fr;
-
-    max-width: 700px;
-}
-
-.people-hero h1 {
-    font-size: 56px;
-}
-.design-rule-grid,
-.colour-grid {
-    grid-template-columns: 1fr;
-}
-
-.character-layout-example {
-    grid-template-columns: 1fr;
-
-    max-width: 700px;
+    margin-inline: auto;
+    padding: clamp(38px, 6vw, 68px);
 
     text-align: center;
 }
 
-.character-layout-image {
-    min-height: 420px;
+.page-hero h1 {
+    max-width: 18ch;
+
+    margin:
+        14px
+        auto
+        24px;
+
+    font-family: "Cinzel", serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    text-wrap: balance;
 }
+
+.page-hero__intro {
+    max-width: 66ch;
+
+    margin:
+        0
+        auto
+        32px;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    line-height: 1.75;
+}
+
+.page-hero .hero-buttons {
+    justify-content: center;
+}
+
+@media (max-width: 640px) {
+    .page-hero {
+        width: calc(100% - 28px);
+        min-height: auto;
+
+        padding-block:
+            54px
+            72px;
+    }
+
+    .page-hero__content {
+        padding:
+            34px
+            22px;
+    }
+
+    .page-hero h1 {
+        font-size: clamp(2.5rem, 14vw, 4rem);
+    }
+
+    .page-hero .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .page-hero .button {
+        width: 100%;
+        text-align: center;
+    }
+}
+.story-status-reveal.animate {
+    animation: revealTitle 0.35s ease;
+}
+
+@keyframes revealTitle {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.5;
+    }
+
+    60% {
+        transform: scale(1.08);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+/* ==========================================================
+   SITE SECRET REVEALS
+   ========================================================== */
+
+.site-secret {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.site-secret-button {
+    display: inline-block;
+
+    padding: 11px 20px;
+
+    border: 1px solid rgba(214, 169, 74, 0.45);
+    border-radius: 999px;
+
+    background: rgba(214, 169, 74, 0.08);
+    color: var(--gold);
+
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.site-secret-button:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(214, 169, 74, 0.8);
+
+    background: rgba(214, 169, 74, 0.15);
+}
+
+.site-secret-button:focus-visible {
+    outline: 3px solid rgba(79, 168, 255, 0.75);
+    outline-offset: 4px;
+}
+
+.site-secret-button.is-label {
+    background: rgba(214, 169, 74, 0.14);
+}
+
+.site-secret-button.is-revealed {
+    border-color: var(--gold);
+
+    background: var(--gold);
+    color: #11192e;
+
+    letter-spacing: 0.04em;
+    text-transform: none;
+}
+
+.site-secret-button.animate {
+    animation: secretReveal 0.35s ease;
+}
+
+@keyframes secretReveal {
+    0% {
+        opacity: 0.45;
+        transform: scale(0.95);
+    }
+
+    60% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/* ==========================================================
+   RESPONSIVE DESIGN
+========================================================== */
+
+
+/* ----------------------------------------------------------
+   TABLETS AND SMALL LAPTOPS
+---------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    /* HEADER */
+
     header {
         flex-direction: column;
         gap: 20px;
@@ -2104,6 +2251,9 @@ nav a:focus {
         gap: 18px 28px;
     }
 
+
+    /* HOME PAGE */
+
     .hero {
         padding: 80px 24px;
     }
@@ -2115,6 +2265,21 @@ nav a:focus {
     .hero h2 {
         font-size: 48px;
     }
+
+    .belief,
+    .series-books,
+    .worlds {
+        padding: 90px 24px;
+    }
+
+    .book-grid,
+    .world-grid {
+        grid-template-columns:
+            repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+
+    /* WORLD PAGE */
 
     .world-hero {
         padding: 80px 24px;
@@ -2132,186 +2297,274 @@ nav a:focus {
         font-size: 23px;
     }
 
-    .belief,
-    .series-books,
-    .worlds {
-        padding: 90px 24px;
+
+    /* DESIGN SYSTEM PAGE */
+
+    .design-rule-grid,
+    .colour-grid {
+        grid-template-columns: 1fr;
     }
 
-    .book-grid,
-    .world-grid {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    .character-layout-example {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+        text-align: center;
     }
+
+    .character-layout-image {
+        min-height: 420px;
+    }
+
+
+    /* PEOPLE PAGE */
+
+    .people-hero h1 {
+        font-size: 56px;
+    }
+
+    /*
+       Keep two character cards across on tablets.
+       They change to one column at 700px.
+    */
+
+    .people-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    /* BOOK FEATURE SECTION */
+
     .book-feature-layout {
-    grid-template-columns: 1fr;
-    max-width: 700px;
-    text-align: center;
+        grid-template-columns: 1fr;
+        max-width: 700px;
+        text-align: center;
+    }
+
+    .book-feature-image {
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .book-feature-text {
+        text-align: center;
+    }
+
+
+    /* CHARACTER PROFILE HERO */
+
+    .profile-hero {
+        grid-template-columns: 1fr;
+        max-width: 720px;
+        text-align: center;
+    }
+
+    .profile-portrait {
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    .profile-introduction {
+        text-align: center;
+    }
+
+    .profile-quote,
+    .profile-summary {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .profile-actions {
+        justify-content: center;
+    }
+
+
+    /* PROFILE FEATURE BOXES */
+
+    /*
+       Keep the four boxes in a 2 × 2 layout.
+    */
+
+    .profile-detail-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    /* PROFILE CONNECTION CARDS */
+
+    /*
+       Keep image above text.
+       Never change connection cards to a sideways layout.
+    */
+
+    .connection-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .connection-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .connection-portrait {
+        height: 330px;
+        min-height: 0;
+    }
+
+    .connection-content {
+        text-align: center;
+    }
+
+
+    /* STORY TIMELINE */
+
+    .story-timeline-card {
+        grid-template-columns: 180px 1fr;
+    }
 }
 
-.book-feature-image {
-    max-width: 420px;
-    margin: 0 auto;
+
+/* ----------------------------------------------------------
+   SMALL TABLETS
+---------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+    /* PEOPLE PAGE */
+
+    .people-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+
+
+    /* PROFILE FEATURE BOXES */
+
+    .profile-detail-grid {
+        grid-template-columns: 1fr;
+        max-width: 700px;
+    }
+
+
+    /* PROFILE CONNECTIONS */
+
+    .connection-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+
+    .connection-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .connection-portrait {
+        height: auto;
+        min-height: 0;
+    }
+
+    .connection-portrait img {
+        height: auto;
+    }
+
+    .connection-content {
+        text-align: center;
+    }
+
+
+    /* PROFILE PAGINATION */
+
+    .profile-pagination {
+        grid-template-columns: 1fr;
+    }
+
+    .next-character {
+        text-align: left;
+    }
+
+
+    /* STORY TIMELINE */
+
+    .story-timeline {
+        width: min(100% - 28px, 620px);
+    }
+
+    .story-timeline-line {
+        left: 32px;
+    }
+
+    .story-timeline-marker {
+        left: 32px;
+    }
+
+    .story-timeline-card {
+        grid-template-columns: 1fr;
+        margin-left: 60px;
+        padding: 28px;
+    }
+
+    .story-timeline-cover {
+        max-width: 220px;
+        margin: 0 auto;
+    }
+
+    .story-timeline-content {
+        text-align: center;
+    }
+
+    .story-timeline-details {
+        grid-template-columns: 1fr;
+    }
+
+    .story-timeline-links {
+        justify-content: center;
+    }
+
+
+    /* OLDER TIMELINE CLASSES */
+
+    .series-timeline {
+        width: min(100% - 32px, 620px);
+        padding-left: 44px;
+    }
+
+    .series-timeline::before {
+        left: 16px;
+    }
+
+    .timeline-entry {
+        display: block;
+        margin-bottom: 70px;
+    }
+
+    .timeline-entry-left .timeline-card,
+    .timeline-entry-right .timeline-card {
+        grid-column: auto;
+    }
+
+    .timeline-marker {
+        left: -28px;
+        width: 48px;
+        height: 48px;
+    }
+
+    .timeline-card {
+        grid-template-columns: 145px 1fr;
+        gap: 22px;
+    }
 }
 
-.book-feature-text {
-    text-align: center;
-}
 
-.profile-hero {
-    grid-template-columns: 1fr;
-
-    max-width: 720px;
-
-    text-align: center;
-}
-
-.profile-portrait {
-    max-width: 420px;
-
-    margin: 0 auto;
-}
-
-.profile-introduction {
-    text-align: center;
-}
-
-.profile-quote,
-.profile-summary {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.profile-actions {
-    justify-content: center;
-}
-
-.profile-detail-grid {
-    grid-template-columns: 1fr;
-
-    max-width: 700px;
-}
-}
+/* ----------------------------------------------------------
+   MOBILE PHONES
+---------------------------------------------------------- */
 
 @media (max-width: 520px) {
 
-    .profile-pagination {
-    padding: 30px 24px 70px;
+    /* HEADER */
 
-    grid-template-columns: 1fr;
-}
-
-.next-character {
-    text-align: left;
-}
-    .profile-connections {
-    padding: 90px 24px;
-}
-
-.connection-card {
-    display: flex;
-}
-
-.connection-portrait {
-    height: auto;
-    min-height: 0;
-}
-
-.connection-portrait img {
-    height: auto;
-}
-
-.connection-content {
-    text-align: center;
-}
-.design-system-hero,
-.design-system-section {
-    padding: 90px 24px;
-}
-.people-hero,
-.people-section,
-.people-closing {
-    padding: 90px 24px;
-}
-
-.people-hero-content {
-    padding: 42px 28px;
-}
-
-.people-hero h1 {
-    font-size: 42px;
-}
-
-.people-hero-lead {
-    font-size: 22px;
-}
-
-.person-portrait {
-    height: auto;
-}
-
-.person-portrait img {
-    height: auto;
-}
-
-.person-card-content {
-    padding: 32px 26px;
-}
-
-.person-card h3 {
-    font-size: 31px;
-}
-
-.story-badge {
-    top: 14px;
-    right: 14px;
-
-    padding: 8px 12px;
-
-    font-size: 10px;
-}
-
-.people-closing h2 {
-    font-size: 34px;
-}
-.design-system-hero-content,
-.type-samples,
-.design-rule-note,
-.button-language,
-.principles-list {
-    padding: 42px 28px;
-}
-
-.design-system-hero h1 {
-    font-size: 42px;
-}
-
-.design-system-lead {
-    font-size: 23px;
-}
-
-.design-rule-card,
-.colour-card {
-    padding: 30px;
-}
-
-.type-samples h1 {
-    font-size: 40px;
-}
-
-.type-samples h2 {
-    font-size: 32px;
-}
-
-.space-example {
-    min-height: 260px;
-}
-
-.button-language div {
-    align-items: flex-start;
-    flex-direction: column;
-
-    gap: 8px;
-}
     header h1 {
         font-size: 22px;
         letter-spacing: 3px;
@@ -2320,6 +2573,9 @@ nav a:focus {
     nav a {
         font-size: 15px;
     }
+
+
+    /* HOME HERO */
 
     .hero h2 {
         font-size: 38px;
@@ -2330,6 +2586,14 @@ nav a:focus {
     .world-description {
         font-size: 17px;
     }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+
+    /* BELIEF SECTION */
 
     .belief-content {
         padding: 42px 28px;
@@ -2343,6 +2607,9 @@ nav a:focus {
         font-size: 18px;
     }
 
+
+    /* WORLD PAGE */
+
     .world-hero-content {
         padding: 42px 28px;
     }
@@ -2351,17 +2618,21 @@ nav a:focus {
         font-size: 44px;
     }
 
+
+    /* SECTION HEADINGS */
+
     .section-heading h2,
     .section-header h2 {
         font-size: 34px;
     }
 
+
+    /* BOOK AND WORLD CARDS */
+
     .book-grid,
     .world-grid {
         grid-template-columns: 1fr;
-
         max-width: 360px;
-
         margin-left: auto;
         margin-right: auto;
     }
@@ -2369,7 +2640,6 @@ nav a:focus {
     .book-card,
     .world-card {
         width: 100%;
-
         padding: 28px;
     }
 
@@ -2382,56 +2652,228 @@ nav a:focus {
         width: 100%;
         text-align: center;
     }
+
+
+    /* PEOPLE PAGE */
+
+    .people-hero,
+    .people-section,
+    .people-closing {
+        padding: 90px 24px;
+    }
+
+    .people-hero-content {
+        padding: 42px 28px;
+    }
+
+    .people-hero h1 {
+        font-size: 42px;
+    }
+
+    .people-hero-lead {
+        font-size: 22px;
+    }
+
+    .person-portrait {
+        height: auto;
+    }
+
+    .person-portrait img {
+        height: auto;
+    }
+
+    .person-card-content {
+        padding: 32px 26px;
+    }
+
+    .person-card h3 {
+        font-size: 31px;
+    }
+
+    .story-badge {
+        top: 14px;
+        right: 14px;
+        padding: 8px 12px;
+        font-size: 10px;
+    }
+
+    .people-closing h2 {
+        font-size: 34px;
+    }
+
+
+    /* DESIGN SYSTEM */
+
+    .design-system-hero,
+    .design-system-section {
+        padding: 90px 24px;
+    }
+
+    .design-system-hero-content,
+    .type-samples,
+    .design-rule-note,
+    .button-language,
+    .principles-list {
+        padding: 42px 28px;
+    }
+
+    .design-system-hero h1 {
+        font-size: 42px;
+    }
+
+    .design-system-lead {
+        font-size: 23px;
+    }
+
+    .design-rule-card,
+    .colour-card {
+        padding: 30px;
+    }
+
+    .type-samples h1 {
+        font-size: 40px;
+    }
+
+    .type-samples h2 {
+        font-size: 32px;
+    }
+
+    .space-example {
+        min-height: 260px;
+    }
+
+    .button-language div {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+
+    /* BOOK FEATURE */
+
     .book-feature {
-    padding: 90px 24px;
-}
+        padding: 90px 24px;
+    }
 
-.book-feature-text p {
-    font-size: 18px;
-}
+    .book-feature-text p {
+        font-size: 18px;
+    }
 
-.profile-hero,
-.profile-about,
-.profile-details,
-.profile-books,
-.profile-closing {
-    padding: 90px 24px;
-}
 
-.profile-introduction h1 {
-    font-size: 46px;
-}
+    /* CHARACTER PROFILE */
 
-.profile-quote {
-    font-size: 25px;
-}
+    .profile-hero,
+    .profile-about,
+    .profile-details,
+    .profile-books,
+    .profile-closing,
+    .profile-connections {
+        padding: 90px 24px;
+    }
 
-.profile-summary {
-    font-size: 19px;
-}
+    .profile-introduction h1 {
+        font-size: 46px;
+    }
 
-.profile-about-panel {
-    padding: 42px 28px;
-}
+    .profile-quote {
+        font-size: 25px;
+    }
 
-.profile-detail-card {
-    padding: 32px 26px;
-}
+    .profile-summary {
+        font-size: 19px;
+    }
 
-.profile-book-link {
-    align-items: flex-start;
-    flex-direction: column;
+    .profile-about-panel {
+        padding: 42px 28px;
+    }
 
-    gap: 8px;
-}
+    .profile-detail-card {
+        padding: 32px 26px;
+    }
 
-.profile-book-link strong {
-    text-align: left;
-}
+    .profile-book-link {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
 
-.profile-closing h2 {
-    font-size: 35px;
-}
+    .profile-book-link strong {
+        text-align: left;
+    }
+
+    .profile-closing h2 {
+        font-size: 35px;
+    }
+
+    .profile-pagination {
+        padding: 30px 24px 70px;
+        grid-template-columns: 1fr;
+    }
+
+
+    /* PROFILE CONNECTIONS */
+
+    .connection-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .connection-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .connection-portrait {
+        height: auto;
+        min-height: 0;
+    }
+
+    .connection-portrait img {
+        width: 100%;
+        height: auto;
+    }
+
+    .connection-content {
+        text-align: center;
+    }
+
+
+    /* OLDER TIMELINE CLASSES */
+
+    .timeline-hero {
+        padding-top: 110px;
+    }
+
+    .series-timeline {
+        padding-left: 34px;
+    }
+
+    .series-timeline::before {
+        left: 10px;
+    }
+
+    .timeline-marker {
+        left: -24px;
+        width: 42px;
+        height: 42px;
+    }
+
+    .timeline-card {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .timeline-cover {
+        width: min(190px, 65%);
+        margin: 0 auto;
+    }
+
+    .timeline-content {
+        text-align: center;
+    }
+
+    .timeline-meta {
+        text-align: left;
+    }
 }
 /*==========================================================
     BOOK OPENING

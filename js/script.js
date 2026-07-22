@@ -61,3 +61,86 @@ if (peoplePageCards.length > 0) {
         });
     }
 }
+
+    const developmentStatus =
+        document.getElementById("developmentStatus");
+
+    if (developmentStatus) {
+        const statusMessages = [
+            "In Development",
+            "Project Name Revealed",
+            "This Is My Last Warning"
+        ];
+
+        let currentStatus = 0;
+
+        developmentStatus.addEventListener("click", () => {
+            currentStatus =
+                (currentStatus + 1) % statusMessages.length;
+
+            developmentStatus.textContent =
+                statusMessages[currentStatus];
+
+            developmentStatus.classList.toggle(
+                "is-revealed",
+                currentStatus === 2
+            );
+
+            developmentStatus.setAttribute(
+                "aria-label",
+                currentStatus === 2
+                    ? "Next book title: this Is My Last Warning. Click to reset."
+                    : "Reveal the title of the next book"
+            );
+
+            developmentStatus.classList.remove("animate");
+                void developmentStatus.offsetWidth; // Restart animation
+            developmentStatus.classList.add("animate");
+        });
+        const secretButtons = document.querySelectorAll(".site-secret-button");
+
+secretButtons.forEach((button) => {
+    const originalText = button.textContent.trim();
+    const labelText =
+        button.dataset.secretLabel || "Secret Revealed";
+    const secretText =
+        button.dataset.secretText || "Something is hidden here.";
+
+    const messages = [
+        originalText,
+        labelText,
+        secretText
+    ];
+
+    let currentMessage = 0;
+
+    button.addEventListener("click", () => {
+        currentMessage =
+            (currentMessage + 1) % messages.length;
+
+        button.textContent = messages[currentMessage];
+
+        button.classList.toggle(
+            "is-label",
+            currentMessage === 1
+        );
+
+        button.classList.toggle(
+            "is-revealed",
+            currentMessage === 2
+        );
+
+        button.setAttribute(
+            "aria-expanded",
+            currentMessage === 2 ? "true" : "false"
+        );
+
+        button.classList.remove("animate");
+
+        // Restarts the animation.
+        void button.offsetWidth;
+
+        button.classList.add("animate");
+    });
+});
+    }

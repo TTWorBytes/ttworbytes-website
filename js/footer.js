@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <a href="games.html">Games</a>
                             </li>
                             <li>
-                                <a href="characters.html">Characters</a>
+                                <a href="people.html">Characters</a>
                             </li>
                             <li>
                                 <a href="this-is-my-timeline.html">

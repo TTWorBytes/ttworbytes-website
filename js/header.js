@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             label: "Characters",
-            href: "characters.html",
+            href: "people.html",
             page: "characters"
         },
         {
