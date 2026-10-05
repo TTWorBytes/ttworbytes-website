@@ -69,7 +69,7 @@ if (peoplePageCards.length > 0) {
         const statusMessages = [
             "In Development",
             "Project Name Revealed",
-            "This Is My Last Warning"
+            "This Is My Big Secret"
         ];
 
         let currentStatus = 0;
@@ -89,7 +89,7 @@ if (peoplePageCards.length > 0) {
             developmentStatus.setAttribute(
                 "aria-label",
                 currentStatus === 2
-                    ? "Next book title: this Is My Last Warning. Click to reset."
+                    ? "Next book title: This Is My Big Secret. Click to reset."
                     : "Reveal the title of the next book"
             );
 
