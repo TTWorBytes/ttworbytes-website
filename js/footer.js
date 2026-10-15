@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </p>
 
                         <p class="master-footer__description">
-                            Original games and stories created by Neil Amess.
+                            Original games and stories created by N. J. Ellwood.
                         </p>
                     </section>
 
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         <ul class="master-footer__links">
                             <li>
-                                <a href="about.html">Neil Amess</a>
+                                <a href="about.html">N. J. Ellwood.</a>
                             </li>
                             <li>
                                 <a href="contact.html">Contact</a>
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="master-footer__bottom">
 
                     <p class="master-footer__copyright">
-                        © ${currentYear} Neil Amess.
+                        © ${currentYear} N. J. Ellwood.
                         All rights reserved.
                     </p>
 

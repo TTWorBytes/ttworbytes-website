@@ -1,0 +1,118 @@
+TTWORBYTES MASTER WEBSITE CHECKLIST
+
+Change [ ] to [x] after you have checked a page.
+
+Total HTML files found: 78
+Old/archive files are listed separately at the end.
+
+MAIN WEBSITE
+
+    [ ] index.html
+    [ ] about.html
+    [ ] books.html
+    [ ] people.html
+    [ ] games.html
+    [ ] news.html
+    [ ] contact.html
+    [ ] privacy.html
+    [ ] 404.html
+
+THIS IS MY — SERIES PAGES
+
+    [ ] this-is-my.html
+    [ ] this-is-my-timeline.html
+    [ ] this-is-my-people.html
+
+THIS IS MY — BOOKS
+
+    [ ] this-is-my-last-day.html
+    [ ] this-is-my-worst-day.html
+    [ ] this-is-my-love-story.html
+    [ ] this-is-my-best-holiday.html
+    [ ] this-is-my-big-mistake.html
+    [ ] this-is-my-one-chance.html
+    [ ] this-is-my-last-warning.html
+    [ ] this-is-my-big-emergency.html
+    [ ] this-is-my-bad-idea.html
+    [ ] this-is-my-brilliant-plan.html
+    [ ] this-is-my-big-secret.html
+    [ ] this-is-my-new-beginning.html
+
+THIS IS MY — CHARACTERS & PEOPLE
+
+    [ ] alex-frayne.html
+    [ ] ben-hunter.html
+    [ ] bradley-cooper.html
+    [ ] callum-sam-megan.html
+    [ ] faisal-khan.html
+    [ ] grandpa-leon.html
+    [ ] holly-carter.html
+    [ ] jack-morrow.html
+    [ ] jake-morrow.html
+    [ ] jamie-frayne.html
+    [ ] katie-bennet.html
+    [ ] leo-patel.html
+    [ ] miss-donnelly.html
+    [ ] mr-bell.html
+    [ ] mr-briggs.html
+    [ ] mr-harrington.html
+    [ ] mr-morrow.html
+    [ ] mr-pritchard.html
+    [ ] mr-thornton.html
+    [ ] mrs-morrow.html
+    [ ] nathan-cross.html
+    [ ] penalty-shooters.html
+    [ ] rodger-carter.html
+    [ ] ruby-mason.html
+    [ ] ryan-crowe.html
+    [ ] tim-dawson.html
+    [ ] tims-brothers.html
+    [ ] tom-holloway.html
+
+KE’VALIEN — SERIES & BOOKS
+
+    [ ] kevalien.html
+    [ ] kevalien-people.html
+    [ ] kevalien-the-four-rings.html
+    [ ] kevalien-the-draconian-war.html
+    [ ] kevalien-he-must-choose-who-he-becomes.html
+
+KE’VALIEN — CHARACTERS & PEOPLE
+
+    [ ] aoki-bijl-chidiac.html
+    [ ] bolesh.html
+    [ ] chixulu-portrait.html
+    [ ] docar.html
+    [ ] finn.html
+    [ ] franks.html
+    [ ] kanor.html
+    [ ] kevin.html
+    [ ] kevins-dad.html
+    [ ] kevins-gran.html
+    [ ] kevins-mum.html
+    [ ] kieran.html
+    [ ] lake-guardian.html
+    [ ] leinad-portrait.html
+    [ ] nivek.html
+    [ ] professor-sharpe.html
+
+INTERNAL / DEVELOPMENT
+
+    [ ] design-system.html
+
+OLD / ARCHIVE — PROBABLY NOT LIVE
+
+    [ ] callum-sam-megan-old.html
+    [ ] grandpa-leon-old.html
+    [ ] leo-patel-old.html
+    [ ] penalty-shooters-old.html
+
+FINAL SITE-WIDE CHECKS
+
+    [ ] Header/navigation checked
+    [ ] Footer/copyright checked
+    [ ] Internal links checked
+    [ ] Images and alt text checked
+    [ ] Page titles and descriptions checked
+    [ ] Mobile layout checked
+    [ ] Old/archive pages confirmed as non-live or removed
